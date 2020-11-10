@@ -39,9 +39,7 @@ public class CompaniesFragment extends Fragment implements ICompaniesView {
     }
 
     private void init() {
-        String myValue = this.getArguments().getString("service_id");
-        setTitle(myValue);
-
+        txt_mainToolbar.setText(this.getArguments().getString("service_id"));
         companies.addAll(Global.companiesList);
         Log.d("CompaniesArray", "" + companies.size());
         Global.device_back_tag = "CompaniesFragment";
@@ -59,19 +57,5 @@ public class CompaniesFragment extends Fragment implements ICompaniesView {
     @Override
     public void onComapnies(String message) {
 
-    }
-
-    private void setTitle(String myValue) {
-        switch (myValue) {
-            case "1":
-                txt_mainToolbar.setText("Lawn Moving Companies");
-                break;
-            case "2":
-                txt_mainToolbar.setText("Plumbing Companies");
-                break;
-            case "3":
-                txt_mainToolbar.setText("A/C Repairing Companies");
-                break;
-        }
     }
 }

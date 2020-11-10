@@ -14,11 +14,11 @@ public class SignupPresenter implements ISignupPresenter {
     }
 
     @Override
-    public void onSignup(String name, String password, String email, String town_id, String address, String postcode) {
-        User user = new User("" + name, "" + password, "" + email, "" + town_id, "" + address, "" + postcode);
+    public void onSignup(String name, String password, String email, String town_id, String address, String postcode, String street) {
+        User user = new User("" + name, "" + password, "" + email, "" + town_id, "" + address, "" + postcode, "" + street);
         boolean checkSignup = user.validateSignup();
         if (checkSignup) {
-            postWebDataAPI.PostSignUpData("" + name, "" + password, "" + email, "" + town_id, "" + address, "" + postcode);
+            postWebDataAPI.PostSignUpData("" + name, "" + password, "" + email, "" + town_id, "" + address, "" + postcode, "" + street);
         } else {
             signupView.onSignup("All Fields Required");
         }

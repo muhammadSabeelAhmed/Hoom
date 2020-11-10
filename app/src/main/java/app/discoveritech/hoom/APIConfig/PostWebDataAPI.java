@@ -75,8 +75,8 @@ public class PostWebDataAPI {
         });
     }
 
-    public void PostSignUpData(String name, String password, String email, String town_id, String address, String postal_code) {
-        Call<User> call = apiInterface.signUpUser("" + name, "" + password, "3", "" + email, "" + town_id, "" + address, "" + postal_code);
+    public void PostSignUpData(String name, String password, String email, String town_id, String address, String postal_code, String street) {
+        Call<User> call = apiInterface.signUpUser("" + name, "" + password, "3", "" + email, "" + town_id, "" + address, "" + postal_code, "" + street);
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
@@ -127,10 +127,10 @@ public class PostWebDataAPI {
             @Override
             public void onResponse(Call<List<Companies>> call, Response<List<Companies>> response) {
                 if (response.isSuccessful()) {
-                    iCompaniesView.onComapnies("Looking for Lawnmoving");
                     Global.companiesList.clear();
                     List<Companies> companies = response.body();
                     Global.companiesList.addAll(companies);
+                    iCompaniesView.onComapnies("Companies Success");
                 }
             }
 

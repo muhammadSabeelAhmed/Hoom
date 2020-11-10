@@ -27,7 +27,8 @@ public interface APIInterface {
                           @Field("email") String email,
                           @Field("town_id") String town_id,
                           @Field("address") String address,
-                          @Field("postcode") String postcode);
+                          @Field("postcode") String postcode,
+                          @Field("street") String street);
 
     @GET("town")
     Call<List<Town>> getTownsWithAuth(@Header("Authorization") String Bearer);

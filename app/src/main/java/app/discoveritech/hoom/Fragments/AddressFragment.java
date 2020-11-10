@@ -81,6 +81,7 @@ public class AddressFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.Abtn_save:
                 if (validateAddress()) {
+                    Global.addressArray.clear();
                     for (int i = 0; i < Global.townsList.size(); i++) {
                         if (Global.townsList.get(i).getName().equals(txt_town)) {
                             Global.addressArray.add(0, Global.townsList.get(i).getId());

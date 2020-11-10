@@ -75,21 +75,29 @@
                     android:textSize="30dp" />
             </RelativeLayout>
 
-
-            <RatingBar
+            <com.iarcuschin.simpleratingbar.SimpleRatingBar
                 android:id="@+id/ratingBar"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="-4dp"
-                android:layout_marginRight="-4dp"
-                android:maxHeight="48dp"
-                android:minHeight="48dp"
-                android:progressTint="#0f0"
-                android:secondaryProgressTint="#00f"
-                android:backgroundTint="#f00"
-                android:rating="2.5"
-                hedgehog:targetApi="lollipop" />
+                app:srb_borderColor="@color/spinner_bg"
+                app:srb_fillColor="@color/spinner_bg"
+                app:srb_numberOfStars="5"
+                app:srb_rating="3"
+                app:srb_starSize="40dp"
+                app:srb_stepSize="0.1" />
+
+            <!--            <RatingBar-->
+            <!--                android:id="@+id/ratingBar"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_gravity="center_horizontal"-->
+            <!--                android:maxHeight="48dp"-->
+            <!--                android:minHeight="48dp"-->
+            <!--                android:stepSize="0.1"-->
+            <!--                android:numStars="5"-->
+            <!--                android:progressTint="@color/spinner_bg"-->
+            <!--                android:secondaryProgressTint="@color/kprogresshud_grey_color"-->
+            <!--                hedgehog:targetApi="lollipop" />-->
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

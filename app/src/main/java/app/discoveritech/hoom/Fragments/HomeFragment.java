@@ -56,16 +56,16 @@ public class HomeFragment extends Fragment implements View.OnClickListener, ICom
         Global.mKProgressHUD.show();
         switch (v.getId()) {
             case R.id.btn_lawnmoving:
-                service_id = "1";
-                companiesPresenter.onCompanies(preferencesHandler.getBearerToken(), service_id);
+                service_id = "Lawn Moving Companies";
+                companiesPresenter.onCompanies(preferencesHandler.getBearerToken(), "1");
                 break;
             case R.id.btn_plumbing:
-                service_id = "2";
-                companiesPresenter.onCompanies(preferencesHandler.getBearerToken(), service_id);
+                service_id = "Plumbing Companies";
+                companiesPresenter.onCompanies(preferencesHandler.getBearerToken(), "2");
                 break;
             case R.id.btn_ac:
-                service_id = "3";
-                companiesPresenter.onCompanies(preferencesHandler.getBearerToken(), service_id);
+                service_id = "A/C Repairing Companies";
+                companiesPresenter.onCompanies(preferencesHandler.getBearerToken(), "3");
                 break;
         }
     }
@@ -76,8 +76,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener, ICom
 
     @Override
     public void onComapnies(String message) {
-        if (message.equals("Looking for Lawnmoving")) {
-            FancyToast.makeText(getActivity(), "" + message, FancyToast.LENGTH_LONG, FancyToast.SUCCESS, false).show();
+        if (message.equals("Companies Success")) {
+            FancyToast.makeText(getActivity(), "Looking for " + service_id, FancyToast.LENGTH_LONG, FancyToast.SUCCESS, false).show();
             openCompany();
         } else {
             FancyToast.makeText(getActivity(), "" + message, FancyToast.LENGTH_LONG, FancyToast.ERROR, false).show();

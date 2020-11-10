@@ -14,6 +14,7 @@ public class User implements IUser {
     private String message;
     private String town_id;
     private String postcode;
+    private String street;
 
     public User(String name, String password, String email, String town_id, String address, String postcode) {
         this.name = name;
@@ -24,9 +25,23 @@ public class User implements IUser {
         this.postcode = postcode;
     }
 
+    public User(String name, String password, String email, String town_id, String address, String postcode, String street) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.address = address;
+        this.town_id = town_id;
+        this.postcode = postcode;
+        this.street = street;
+    }
+
     public User(String email, String password) {
         this.email = email;
         this.password = password;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
     }
 
     public void setTown_id(String town_id) {
@@ -97,6 +112,11 @@ public class User implements IUser {
     @Override
     public String getPostcode() {
         return postcode;
+    }
+
+    @Override
+    public String getStreet() {
+        return street;
     }
 
     @Override

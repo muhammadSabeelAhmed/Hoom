@@ -50,6 +50,8 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     //LoaderView
     implementation 'com.kaopiz:kprogresshud:1.2.0'
-    implementation 'me.zhanghai.android.materialratingbar:library:1.4.0'
+
+    //Rating Bar Android
+    implementation 'com.github.FlyingPumba:SimpleRatingBar:v0.1.5'
 
 }

@@ -14,6 +14,8 @@ public interface IUser {
 
     String getPostcode();
 
+    String getStreet();
+
     boolean validateSignin();
 
     boolean validateSignup();

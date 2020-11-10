@@ -18,10 +18,9 @@ import app.discoveritech.hoom.Presenter.SignupPresenter;
 import app.discoveritech.hoom.R;
 import app.discoveritech.hoom.View.ISignupView;
 
-public class SignupActivity extends AppCompatActivity implements ISignupView {
+public class SignupActivity extends AppCompatActivity {
     FragmentManager fm;
     public static RelativeLayout toolbar;
-    SignupPresenter signupPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +30,6 @@ public class SignupActivity extends AppCompatActivity implements ISignupView {
     }
 
     private void init() {
-        signupPresenter = new SignupPresenter(this::onSignup);
         fm = getSupportFragmentManager();
         toolbar = findViewById(R.id.signup_toolbar);
 
@@ -53,16 +51,4 @@ public class SignupActivity extends AppCompatActivity implements ISignupView {
         }
     }
 
-    @Override
-    public void onSignup(String message) {
-        if (message.equals("Signup Success")) {
-            fm.popBackStack();
-            FancyToast.makeText(SignupActivity.this, "" + message, FancyToast.LENGTH_LONG, FancyToast.SUCCESS, false).show();
-            Global.changeActivity(SignupActivity.this, new MainActivity());
-            overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-            finish();
-        } else {
-            FancyToast.makeText(SignupActivity.this, "" + message, FancyToast.LENGTH_LONG, FancyToast.ERROR, false).show();
-        }
-    }
 }
