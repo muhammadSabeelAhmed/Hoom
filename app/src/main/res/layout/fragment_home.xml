@@ -16,9 +16,11 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/btn_lawnmoving"
-            android:layout_width="305dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="0.9"
             android:foreground="?android:attr/selectableItemBackground"
@@ -39,9 +41,11 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/btn_plumbing"
-            android:layout_width="305dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="0.9"
             android:foreground="?android:attr/selectableItemBackground"
@@ -62,9 +66,11 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/btn_ac"
-            android:layout_width="305dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="0.9"
             android:foreground="?android:attr/selectableItemBackground"

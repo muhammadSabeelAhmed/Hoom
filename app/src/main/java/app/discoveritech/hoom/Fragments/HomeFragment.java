@@ -45,7 +45,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener, ICom
         btn_plumbing = v.findViewById(R.id.btn_plumbing);
         btn_lawn = v.findViewById(R.id.btn_lawnmoving);
         btn_ac = v.findViewById(R.id.btn_ac);
-
         btn_plumbing.setOnClickListener(this);
         btn_lawn.setOnClickListener(this);
         btn_ac.setOnClickListener(this);

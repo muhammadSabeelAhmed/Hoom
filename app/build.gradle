@@ -54,4 +54,8 @@ dependencies {
     //Rating Bar Android
     implementation 'com.github.FlyingPumba:SimpleRatingBar:v0.1.5'
 
+    //Checkbox
+    implementation 'net.igenius:customcheckbox:1.3'
+
+
 }

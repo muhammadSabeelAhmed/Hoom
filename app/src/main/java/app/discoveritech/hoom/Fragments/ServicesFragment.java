@@ -12,49 +12,46 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.shashank.sony.fancytoastlib.FancyToast;
-
 import java.util.ArrayList;
 
 import app.discoveritech.hoom.Adapter.ComapniesAdapter;
+import app.discoveritech.hoom.Adapter.ServicesAdapter;
 import app.discoveritech.hoom.GeneralClasses.Global;
 import app.discoveritech.hoom.Model.Companies;
+import app.discoveritech.hoom.Model.Services;
 import app.discoveritech.hoom.R;
-import app.discoveritech.hoom.View.ICompaniesView;
-import app.discoveritech.hoom.View.IServiceView;
 
 import static app.discoveritech.hoom.Activities.MainActivity.txt_mainToolbar;
 
-public class CompaniesFragment extends Fragment  {
+public class ServicesFragment extends Fragment {
 
     View v;
-    RecyclerView comp_recycler;
-    ComapniesAdapter comapniesAdapter;
-    ArrayList<Companies> companies = new ArrayList<>();
+    RecyclerView service_recycler;
+    ServicesAdapter servicesAdapter;
+    ArrayList<Services> services = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        v = inflater.inflate(R.layout.fragment_companies, container, false);
+        v = inflater.inflate(R.layout.fragment_services, container, false);
         init();
         return v;
     }
 
     private void init() {
-        txt_mainToolbar.setText(this.getArguments().getString("service_id"));
-        companies.clear();
-        companies.addAll(Global.companiesList);
-        Log.d("CompaniesArray", "" + companies.size());
-        Global.device_back_tag = "CompaniesFragment";
+        txt_mainToolbar.setText("Request your Quotation");
+        services.clear();
+        services.addAll(Global.servicesList);
+        Log.d("ServicesArray", "" + services.size());
+        Global.device_back_tag = "ServicesFragment";
         Global.mKProgressHUD.dismiss();
-        comp_recycler = v.findViewById(R.id.companies_recycler);
-        comapniesAdapter = new ComapniesAdapter(companies,getActivity());
+        service_recycler = v.findViewById(R.id.services_recycler);
+        servicesAdapter = new ServicesAdapter(services,getActivity());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
-        comp_recycler.setLayoutManager(mLayoutManager);
-        comp_recycler.setItemAnimator(new DefaultItemAnimator());
-        comp_recycler.setAdapter(comapniesAdapter);
-        comapniesAdapter.notifyDataSetChanged();
+        service_recycler.setLayoutManager(mLayoutManager);
+        service_recycler.setItemAnimator(new DefaultItemAnimator());
+        service_recycler.setAdapter(servicesAdapter);
+        servicesAdapter.notifyDataSetChanged();
     }
-
 }

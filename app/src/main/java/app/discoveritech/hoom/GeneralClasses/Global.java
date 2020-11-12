@@ -15,6 +15,7 @@ import com.kaopiz.kprogresshud.KProgressHUD;
 import java.util.ArrayList;
 
 import app.discoveritech.hoom.Model.Companies;
+import app.discoveritech.hoom.Model.Services;
 import app.discoveritech.hoom.Model.Town;
 import app.discoveritech.hoom.R;
 
@@ -22,6 +23,7 @@ public class Global {
     public static String device_back_tag = "";
     public static ArrayList<Town> townsList = new ArrayList<Town>();
     public static ArrayList<Companies> companiesList = new ArrayList<Companies>();
+    public static ArrayList<Services> servicesList = new ArrayList<Services>();
     public static ArrayList<String> addressArray = new ArrayList<>();
     public static KProgressHUD mKProgressHUD;
 

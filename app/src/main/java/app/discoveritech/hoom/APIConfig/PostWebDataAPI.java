@@ -8,19 +8,23 @@ import java.util.List;
 import app.discoveritech.hoom.GeneralClasses.Global;
 import app.discoveritech.hoom.LocalDatabase.PreferencesHandler;
 import app.discoveritech.hoom.Model.Companies;
+import app.discoveritech.hoom.Model.Services;
 import app.discoveritech.hoom.Model.Town;
 import app.discoveritech.hoom.Model.User;
 import app.discoveritech.hoom.View.ICompaniesView;
 import app.discoveritech.hoom.View.ILoginView;
+import app.discoveritech.hoom.View.IServiceView;
 import app.discoveritech.hoom.View.ISignupView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.POST;
 
 public class PostWebDataAPI {
     APIInterface apiInterface = APIClient.getClient().create(APIInterface.class);
     ILoginView loginView;
     ICompaniesView iCompaniesView;
+    IServiceView serviceView;
     ISignupView signupView;
     PreferencesHandler preferencesHandler;
     String API = "POSTWEBDATAAPI";
@@ -32,6 +36,11 @@ public class PostWebDataAPI {
     public PostWebDataAPI(ILoginView loginView) {
         preferencesHandler = new PreferencesHandler();
         this.loginView = loginView;
+    }
+
+    public PostWebDataAPI(IServiceView serviceView) {
+        preferencesHandler = new PreferencesHandler();
+        this.serviceView = serviceView;
     }
 
     public PostWebDataAPI(ICompaniesView companiesView) {
@@ -138,7 +147,34 @@ public class PostWebDataAPI {
             public void onFailure(Call<List<Companies>> call, Throwable t) {
                 iCompaniesView.onComapnies(t.getMessage());
                 Log.d("MyResponse", "Failure");
+            }
+        });
+    }
 
+
+    public void getServices(String token, String company_id) {
+        Call<List<Services>> call = apiInterface.getServices("Bearer " + token, company_id);
+        call.enqueue(new Callback<List<Services>>() {
+            @Override
+            public void onResponse(Call<List<Services>> call, Response<List<Services>> response) {
+                if (response.isSuccessful()) {
+                    Global.servicesList.clear();
+                    List<Services> services = response.body();
+                    if (services.size() > 0) {
+                        Global.servicesList.addAll(services);
+                        Log.d(API, "Services Size" + Global.servicesList.size());
+                        serviceView.onGetService("Services Success");
+                    } else {
+                        Log.d(API, "No Size" + Global.servicesList.size());
+                        serviceView.onGetService("No Service Offered");
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Services>> call, Throwable t) {
+                serviceView.onGetService(t.getMessage());
+                Log.d("MyResponse", "Failure");
             }
         });
     }

@@ -3,6 +3,7 @@ package app.discoveritech.hoom.APIConfig;
 import java.util.List;
 
 import app.discoveritech.hoom.Model.Companies;
+import app.discoveritech.hoom.Model.Services;
 import app.discoveritech.hoom.Model.Town;
 import app.discoveritech.hoom.Model.User;
 import retrofit2.Call;
@@ -40,5 +41,10 @@ public interface APIInterface {
     @POST("companies")
     Call<List<Companies>> getCompanies(@Header("Authorization") String Bearer,
                                        @Field("service_id") String service_id);
+
+    @FormUrlEncoded
+    @POST("get-service")
+    Call<List<Services>> getServices(@Header("Authorization") String Bearer,
+                                     @Field("company_id") String company_id);
 
 }

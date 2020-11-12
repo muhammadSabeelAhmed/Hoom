@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:hedgehog="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center_horizontal">
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    tools:context=".Fragments.ServicesFragment">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/company_card"
         android:layout_width="match_parent"
-        android:layout_height="175dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
-        android:layout_marginBottom="10dp"
         android:foreground="?android:attr/selectableItemBackground"
         app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="10dp"
@@ -27,7 +26,7 @@
             android:padding="10dp">
 
             <TextView
-                android:id="@+id/comp_name"
+                android:id="@+id/serviceComp_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edittext_background"
@@ -37,12 +36,22 @@
                 android:textColor="@color/spinner_bg"
                 android:textSize="25dp" />
 
+            <com.iarcuschin.simpleratingbar.SimpleRatingBar
+                android:id="@+id/serviceCompRatingBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srb_borderColor="@color/spinner_bg"
+                app:srb_fillColor="@color/spinner_bg"
+                app:srb_numberOfStars="5"
+                app:srb_rating="3"
+                app:srb_starSize="16dp"
+                app:srb_stepSize="0.1" />
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/comp_name"
-                android:layout_marginTop="05dp"
-                android:layout_marginBottom="05dp">
+                android:layout_marginTop="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -58,7 +67,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toStartOf="@+id/comp_estimatedCost"
+                    android:layout_toStartOf="@+id/services_estimatedCost"
                     android:background="@drawable/edittext_background"
                     android:fontFamily="@font/poppins_bold"
                     android:text="$"
@@ -66,7 +75,7 @@
                     android:textSize="20dp" />
 
                 <TextView
-                    android:id="@+id/comp_estimatedCost"
+                    android:id="@+id/services_estimatedCost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -78,29 +87,35 @@
                     android:textSize="30dp" />
             </RelativeLayout>
 
-            <com.iarcuschin.simpleratingbar.SimpleRatingBar
-                android:id="@+id/ratingBar"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/services_recycler"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srb_borderColor="@color/spinner_bg"
-                app:srb_fillColor="@color/spinner_bg"
-                app:srb_numberOfStars="5"
-                app:srb_rating="3"
-                app:srb_starSize="25dp"
-                app:srb_stepSize="0.1" />
+                android:layout_height="wrap_content" />
 
-            <!--            <RatingBar-->
-            <!--                android:id="@+id/ratingBar"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_gravity="center_horizontal"-->
-            <!--                android:maxHeight="48dp"-->
-            <!--                android:minHeight="48dp"-->
-            <!--                android:stepSize="0.1"-->
-            <!--                android:numStars="5"-->
-            <!--                android:progressTint="@color/spinner_bg"-->
-            <!--                android:secondaryProgressTint="@color/kprogresshud_grey_color"-->
-            <!--                hedgehog:targetApi="lollipop" />-->
+            <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/btn_placeOrder"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/button_bg"
+                    android:fontFamily="@font/poppins_bold"
+                    android:gravity="center"
+                    android:text="@string/txt_place_order"
+                    android:textColor="@color/black"
+                    android:textSize="11dp" />
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

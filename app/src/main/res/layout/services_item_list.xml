@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/service"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <net.igenius.customcheckbox.CustomCheckBox
+        android:id="@+id/service_checkbox"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        app:color_checked="@color/spinner_bg"
+        app:color_tick="@color/white"
+        app:color_unchecked_stroke="@color/kprogresshud_grey_color"
+        app:small_tick="false" />
+
+    <TextView
+        android:id="@+id/service_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="60dp"
+        android:layout_toEndOf="@+id/service_checkbox"
+        android:background="@drawable/edittext_background"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/txt_service"
+        android:textColor="@color/black"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/service_cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/edittext_background"
+        android:fontFamily="@font/poppins"
+        android:text="@string/txt_cost"
+        android:textColor="@color/black"
+        android:textSize="12dp" />
+    <!--    <net.igenius.customcheckbox.CustomCheckBox-->
+    <!--        android:layout_width="48dp"-->
+    <!--        android:layout_height="48dp"-->
+    <!--        app:color_checked="@color/colorPrimary"-->
+    <!--        app:color_tick="@android:color/white"-->
+    <!--        app:color_unchecked="@color/colorAccent"-->
+    <!--        app:color_unchecked_stroke="@color/colorAccent"-->
+    <!--        app:small_tick="true" />-->
+</RelativeLayout>

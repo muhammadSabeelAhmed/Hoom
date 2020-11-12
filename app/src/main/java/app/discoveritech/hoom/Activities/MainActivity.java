@@ -27,7 +27,7 @@ import app.discoveritech.hoom.R;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
     PostWebDataAPI postWebDataAPI;
     PreferencesHandler preferencesHandler;
-   public static TextView txt_mainToolbar;
+    public static TextView txt_mainToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         preferencesHandler = new PreferencesHandler(MainActivity.this);
         postWebDataAPI = new PostWebDataAPI(MainActivity.this);
-
         init();
     }
 
